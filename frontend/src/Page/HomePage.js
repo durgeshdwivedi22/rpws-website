@@ -1,116 +1,82 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   return (
     <div>
       {/* HERO SECTION */}
       <section
-        className="bg-primary text-white py-5 d-flex align-items-center"
-        style={{
-          minHeight: "100vh",
-          background: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
-        }}
+        className="relative text-white min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800"
       >
-        <div className="container py-5">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-5 mb-lg-0" data-bs-toggle="fade">
-              <p className="text-uppercase mb-3 opacity-75">
+        <div className="container mx-auto px-6 py-12 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 text-center lg:text-left"
+            >
+              <p className="uppercase tracking-widest font-bold text-yellow-400 mb-4">
                 Welcome to <strong>RPWS</strong>
               </p>
-              <h1 className="display-3 fw-bold mb-4 lh-sm">
-                Rate and Review College Events Instantly
+              <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                Rate and Review <br/> <span className="text-indigo-200">College Events</span> Instantly
               </h1>
-              <p className="lead fs-5 mb-5">
+              <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto lg:mx-0">
                 Participate, vote, and celebrate with real-time results — all in
                 one smart, secure platform built for colleges.
               </p>
-              <div className="d-flex gap-3 flex-wrap">
+              <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
                 <Link
                   to="/winner"
-                  className="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow-lg"
+                  className="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold shadow-lg hover:bg-gray-100 transition transform hover:scale-105"
                 >
                   View Winners
                 </Link>
                 <Link
                   to="/register"
-                  className="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow-lg"
+                  className="border-2 border-white text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-white/10 transition transform hover:scale-105"
                 >
                   Register
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="col-lg-6">
-              <div className="position-relative">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 w-full"
+            >
+              <div className="relative">
                 {/* Interactive Logo Card */}
                 <div 
-                  className="card border-0 shadow-lg interactive-logo-card"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.1)",
-                    backdropFilter: "blur(10px)",
-                    borderRadius: "20px",
-                    transition: "all 0.4s ease",
-                    transform: "translateY(0)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-10px) scale(1.02)";
-                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0) scale(1)";
-                    e.currentTarget.style.boxShadow = "";
-                  }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-indigo-500/30"
                 >
-                  <div className="card-body p-4">
+                  <div className="flex flex-col items-center">
                     {/* Logo Container with Rotation Effect */}
                     <div 
-                      className="text-center mb-4 position-relative"
-                      style={{
-                        transition: "transform 0.6s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        const img = e.currentTarget.querySelector('.logo-image');
-                        if (img) img.style.transform = "rotate(360deg) scale(1.1)";
-                      }}
-                      onMouseLeave={(e) => {
-                        const img = e.currentTarget.querySelector('.logo-image');
-                        if (img) img.style.transform = "rotate(0deg) scale(1)";
-                      }}
+                      className="mb-6 relative group"
                     >
                       <div 
-                        className="d-inline-block p-4 rounded-circle position-relative"
-                        style={{
-                          background: "linear-gradient(135deg, #fff 0%, #f0f0f0 100%)",
-                          boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                        }}
+                        className="p-6 rounded-full bg-gradient-to-br from-white to-gray-100 shadow-xl relative z-10"
                       >
                         <img
                           src="axislogo-removebg-preview.png"
                           alt="AITM Logo"
-                          className="logo-image"
-                          style={{
-                            width: "150px",
-                            height: "150px",
-                            objectFit: "contain",
-                            transition: "transform 0.6s ease",
-                            filter: "drop-shadow(0 5px 15px rgba(0,0,0,0.1))",
-                          }}
+                          className="w-32 h-32 object-contain transition-transform duration-700 group-hover:rotate-[360deg] group-hover:scale-110"
                         />
                         {/* Animated Ring */}
                         <div
-                          className="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
-                          style={{
-                            border: "3px solid rgba(255,255,255,0.3)",
-                            animation: "pulse 2s infinite",
-                          }}
+                          className="absolute inset-0 rounded-full border-4 border-white/30 animate-ping"
                         ></div>
                       </div>
                     </div>
 
-                    <div className="card-content text-center text-white">
-                      <h5 className="card-title fw-bold fs-4 mb-3">Gandhigiri Event</h5>
-                      <p className="card-text mb-0 text-dark">
+                    <div className="text-center">
+                      <h5 className="text-2xl font-bold mb-3 text-white">Gandhigiri Event</h5>
+                      <p className="text-indigo-100">
                         Participate in coding contests and hackathons, showcase your
                         talent, and see live results instantly!
                       </p>
@@ -120,87 +86,49 @@ const HomePage = () => {
 
                 {/* Decorative Floating Elements */}
                 <div
-                  className="position-absolute rounded-circle"
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    background: "rgba(255,255,255,0.1)",
-                    top: "-20px",
-                    right: "-20px",
-                    filter: "blur(40px)",
-                    animation: "float 3s ease-in-out infinite",
-                  }}
+                  className="absolute w-32 h-32 bg-purple-500/30 rounded-full blur-3xl -top-10 -right-10 animate-pulse"
                 ></div>
                 <div
-                  className="position-absolute rounded-circle"
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    background: "rgba(255,255,255,0.1)",
-                    bottom: "-20px",
-                    left: "-20px",
-                    filter: "blur(40px)",
-                    animation: "float 3s ease-in-out infinite 1s",
-                  }}
+                  className="absolute w-24 h-24 bg-indigo-500/30 rounded-full blur-3xl -bottom-10 -left-10 animate-pulse delay-700"
                 ></div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes pulse {
-            0%, 100% {
-              transform: scale(1);
-              opacity: 1;
-            }
-            50% {
-              transform: scale(1.1);
-              opacity: 0.5;
-            }
-          }
-
-          @keyframes float {
-            0%, 100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-20px);
-            }
-          }
-        `}</style>
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="py-5 bg-white">
-        <div className="container text-center py-5">
-          <h2
-            className="display-4 fw-bold mb-4"
-            style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900"
           >
             About RPWS
-          </h2>
-          <p className="lead text-muted mx-auto" style={{ maxWidth: "800px" }}>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" 
+          >
             RPWS (Rate Page Web System) is your one-stop platform to rate,
             review, and celebrate college talent. Built with modern technology,
             it ensures transparency, engagement, and fairness in every event.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* STATS SECTION */}
       <section
-        className="py-5 text-white"
-        style={{
-          background: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
-        }}
+        className="py-20 bg-gradient-to-br from-gray-900 to-black text-white"
       >
-        <div className="container text-center">
-          <div className="row g-4">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               {
                 icon: "bi-hand-thumbs-up",
@@ -211,12 +139,15 @@ const HomePage = () => {
               { icon: "bi-calendar-event", value: "50+", label: "Events" },
               { icon: "bi-shield-check", value: "100%", label: "Secure" },
             ].map((stat, idx) => (
-              <div className="col-md-3 col-6" key={idx}>
-                <div className="stat-card">
-                  <i className={`bi ${stat.icon} display-3 mb-3`}></i>
-                  <h2 className="fw-bold">{stat.value}</h2>
-                  <p>{stat.label}</p>
-                </div>
+              <div key={idx}>
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10"
+                >
+                  <i className={`bi ${stat.icon} text-4xl mb-4 block text-indigo-400`}></i>
+                  <h2 className="text-3xl font-bold mb-2">{stat.value}</h2>
+                  <p className="text-gray-400">{stat.label}</p>
+                </motion.div>
               </div>
             ))}
           </div>
@@ -224,43 +155,46 @@ const HomePage = () => {
       </section>
 
       {/* FEATURES SECTION */}
-      <section className="py-5 bg-light">
-        <div className="container text-center py-5">
-          <h2 className="display-5 fw-bold mb-3 text-gradient">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">
             Why Choose RPWS?
           </h2>
-          <p className="lead text-muted mb-5">
+          <p className="text-xl text-gray-500 mb-12">
             Everything you need for a seamless event experience
           </p>
-          <div className="row g-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: "bi-lightning-charge text-primary",
+                icon: "bi-lightning-charge text-indigo-600",
                 title: "Instant Voting",
                 desc: "Vote quickly and easily with our clean interface.",
               },
               {
-                icon: "bi-shield-lock text-success",
+                icon: "bi-shield-lock text-green-600",
                 title: "Secure & Verified",
                 desc: "Every vote is verified — ensuring fairness for all.",
               },
               {
-                icon: "bi-bar-chart text-warning",
+                icon: "bi-bar-chart text-yellow-500",
                 title: "Live Analytics",
                 desc: "See who's leading with real-time vote data.",
               },
               {
-                icon: "bi-download text-danger",
+                icon: "bi-download text-red-500",
                 title: "Export Reports",
                 desc: "Download event results as PDFs instantly.",
               },
             ].map((feature, idx) => (
-              <div className="col-md-3" key={idx}>
-                <div className="feature-card h-100">
-                  <i className={`bi ${feature.icon} display-4 mb-3`}></i>
-                  <h5 className="fw-bold">{feature.title}</h5>
-                  <p className="text-muted">{feature.desc}</p>
-                </div>
+              <div key={idx}>
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="h-full p-8 rounded-2xl shadow-lg border border-gray-100 bg-white hover:shadow-xl transition-shadow"
+                >
+                  <i className={`bi ${feature.icon} text-5xl mb-6 block`}></i>
+                  <h5 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h5>
+                  <p className="text-gray-500">{feature.desc}</p>
+                </motion.div>
               </div>
             ))}
           </div>
@@ -269,50 +203,48 @@ const HomePage = () => {
 
       {/* CTA SECTION */}
       <section
-        className="py-5 text-white text-center"
-        style={{
-          background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-        }}
+        className="py-20 text-center bg-gradient-to-r from-blue-200 to-purple-200"
       >
-        <div className="container py-5">
-          <h2 className="display-4 fw-bold mb-4">Ready to Join the Fun?</h2>
-          <p className="lead mb-5">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold mb-6 text-gray-800">Ready to Join the Fun?</h2>
+          <p className="text-xl mb-10 text-gray-600 max-w-2xl mx-auto">
             Be part of your college's most engaging and transparent rating
             system.
           </p>
+          <div className="flex justify-center gap-4">
           <Link
             to="/register"
-            className="btn btn-light btn-lg rounded-pill px-5 py-3 shadow-lg me-3"
+            className="bg-indigo-600 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-indigo-700 transition"
           >
             <i className="bi bi-person-plus me-2"></i> Register Now
           </Link>
           <Link
             to="/participants"
-            className="btn btn-outline-light btn-lg rounded-pill px-5 py-3"
+            className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full font-bold hover:bg-gray-800 hover:text-white transition"
           >
             <i className="bi bi-hand-thumbs-up me-2"></i> Vote Now
           </Link>
+          </div>
         </div>
       </section>
 
       {/* SUBSCRIBE SECTION */}
-      <section className="py-5 bg-light text-center">
-        <div className="container py-5">
-          <i className="bi bi-envelope-paper-heart display-1 text-primary mb-4"></i>
-          <h3 className="fw-bold mb-3">Stay Updated with RPWS</h3>
-          <p className="lead text-muted mb-4">
+      <section className="py-20 text-center bg-gray-50">
+        <div className="container mx-auto px-6">
+          <i className="bi bi-envelope-paper-heart text-6xl text-indigo-500 mb-6 block"></i>
+          <h3 className="text-3xl font-bold mb-4 text-gray-800">Stay Updated with RPWS</h3>
+          <p className="text-gray-500 mb-8">
             Subscribe to get event notifications and winner announcements!
           </p>
           <div
-            className="input-group input-group-lg shadow-lg mx-auto"
-            style={{ maxWidth: "500px" }}
+            className="flex max-w-lg mx-auto shadow-lg rounded-full overflow-hidden"
           >
             <input
               type="email"
-              className="form-control py-3"
+              className="flex-1 px-6 py-4 border-none outline-none bg-white"
               placeholder="Enter your email"
             />
-            <button className="btn btn-primary px-5" type="button">
+            <button className="bg-indigo-600 text-white px-8 font-bold hover:bg-indigo-700 transition" type="button">
               Subscribe
             </button>
           </div>
@@ -327,10 +259,9 @@ const HomePage = () => {
             behavior: "smooth",
           })
         }
-        className="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg"
-        style={{ width: "60px", height: "60px" }}
+        className="fixed bottom-8 right-8 w-14 h-14 bg-indigo-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-indigo-700 transition z-50"
       >
-        <i className="bi bi-arrow-up text-white fs-3"></i>
+        <i className="bi bi-arrow-up text-2xl"></i>
       </button>
     </div>
   );

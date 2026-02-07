@@ -83,7 +83,7 @@ const Register = () => {
   ];
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", minHeight: "100vh", background: "#f4f6f8" }}>
       {/* Collapsible Sidebar */}
       <Drawer
         variant="permanent"
@@ -94,8 +94,8 @@ const Register = () => {
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
             width: sidebarOpen ? sidebarExpandedWidth : sidebarCollapsedWidth,
-            bgcolor: "rgba(255,255,255,0.1)",
-            color: "#000",
+            bgcolor: "#1a237e",
+            color: "#fff",
             backdropFilter: "blur(10px)",
             overflowX: "hidden",
             borderRight: "1px solid rgba(0,0,0,0.1)",
@@ -103,7 +103,7 @@ const Register = () => {
           },
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 3, mb: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 3, mb: 2, color: "#fff" }}>
           <HomeIcon fontSize="large" />
           {sidebarOpen && (
             <Typography variant="h6" mt={1} fontWeight="bold">
@@ -122,11 +122,11 @@ const Register = () => {
                     borderRadius: 2,
                     mx: 1,
                     transition: "0.3s",
-                    color: "#000",
+                    color: "#fff",
                     "&:hover": {
-                      bgcolor: "rgba(0,0,0,0.05)",
+                      bgcolor: "rgba(255,255,255,0.1)",
                       transform: "scale(1.05)",
-                      color: "#1976d2",
+                      color: "#90caf9",
                     },
                   }}
                 >
@@ -152,12 +152,12 @@ const Register = () => {
           align="center"
           fontWeight="bold"
           gutterBottom
-          sx={{ mb: 4 }}
+          sx={{ mb: 4, color: "#333" }}
         >
           📝 Register for the Event
         </Typography>
 
-        <Paper elevation={4} sx={{ p: 4, maxWidth: 600, mx: "auto", borderRadius: 3 }}>
+        <Paper elevation={6} sx={{ p: 5, maxWidth: 600, mx: "auto", borderRadius: 4, background: "#fff" }}>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <Grid container spacing={3}>
               {/* Team Number */}
@@ -255,9 +255,8 @@ const Register = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  color="primary"
                   fullWidth
-                  sx={{ py: 1.5, borderRadius: 2 }}
+                  sx={{ py: 1.5, borderRadius: 3, background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)", boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)" }}
                 >
                   Register
                 </Button>

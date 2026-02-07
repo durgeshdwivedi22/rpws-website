@@ -6,60 +6,27 @@ import { motion } from "framer-motion";
 const Contact = () => {
   return (
     <div
-      className="contact-page"
-      style={{
-        background: "linear-gradient(135deg, #eef2f3, #dfe9f3)",
-        minHeight: "100vh",
-        padding: "60px 20px",
-      }}
+      className="min-h-screen py-20 px-4 bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 flex flex-col items-center"
     >
       {/* Logo Section */}
       <motion.div
-        className="logo-container"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        style={{
-          textAlign: "center",
-          marginBottom: "40px",
-        }}
+        className="text-center mb-10"
       >
         <img
           src="axislogo-removebg-preview.png"
           alt="Axis College Logo"
-          className="animate__animated animate__fadeInDown axis-logo"
-          style={{
-            width: "180px",
-            height: "auto",
-            borderRadius: "50%",
-            boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.2)",
-            transition: "transform 0.5s ease, box-shadow 0.5s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = "scale(1.1)";
-            e.target.style.boxShadow = "0px 15px 30px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = "scale(1)";
-            e.target.style.boxShadow = "0px 10px 25px rgba(0, 0, 0, 0.2)";
-          }}
+          className="animate__animated animate__fadeInDown w-44 h-auto rounded-full shadow-2xl mx-auto transition-transform duration-500 hover:scale-110 hover:shadow-3xl"
         />
         <h2
-          className="animate__animated animate__fadeInUp"
-          style={{
-            marginTop: "20px",
-            color: "#0c2461",
-            fontWeight: "700",
-          }}
+          className="animate__animated animate__fadeInUp mt-6 text-3xl font-bold text-gray-800"
         >
           AITM Support Team
         </h2>
         <p
-          style={{
-            fontSize: "1.1rem",
-            color: "#2d3436",
-            marginTop: "10px",
-          }}
+          className="text-lg text-gray-700 mt-2"
         >
           This Support Page is exclusively for <strong>Axis Institute of Technology & Management</strong>.
         </p>
@@ -67,79 +34,43 @@ const Contact = () => {
 
       {/* Contact Form Section */}
       <motion.div
-        className="form-container"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        style={{
-          background: "white",
-          borderRadius: "20px",
-          boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)",
-          maxWidth: "600px",
-          margin: "0 auto",
-          padding: "40px 30px",
-        }}
+        className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl w-full max-w-xl p-10"
       >
-        <h3 style={{ color: "#192a56", marginBottom: "20px" }}>
+        <h3 className="text-2xl font-bold text-indigo-900 mb-6">
           Contact Us
         </h3>
         <form>
-          <div className="form-group" style={{ marginBottom: "20px" }}>
-            <label>Name</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-2">Name</label>
             <input
               type="text"
-              className="form-control"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
               placeholder="Enter your name"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
             />
           </div>
-          <div className="form-group" style={{ marginBottom: "20px" }}>
-            <label>Email</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-2">Email</label>
             <input
               type="email"
-              className="form-control"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
               placeholder="Enter your email"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
             />
           </div>
-          <div className="form-group" style={{ marginBottom: "20px" }}>
-            <label>Message</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-2">Message</label>
             <textarea
               rows="4"
-              className="form-control"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
               placeholder="Write your message"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
             />
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="btn btn-primary"
-            style={{
-              width: "100%",
-              padding: "12px",
-              background: "linear-gradient(45deg, #273c75, #40739e)",
-              color: "white",
-              border: "none",
-              borderRadius: "10px",
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
+            className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition"
           >
             Send Message
           </motion.button>

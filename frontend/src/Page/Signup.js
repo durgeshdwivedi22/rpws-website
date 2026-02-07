@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../components/AuthContext";
+import { motion } from "framer-motion";
 import {
   Drawer,
   List,
@@ -17,6 +18,9 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
 import API_URL from "../api";
 const sidebarCollapsedWidth = 50;
 const sidebarExpandedWidth = 150;
@@ -82,8 +86,8 @@ const Signup = () => {
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
             width: sidebarOpen ? sidebarExpandedWidth : sidebarCollapsedWidth,
-            bgcolor: "rgba(255,255,255,0.1)",
-            color: "#000",
+            bgcolor: "#1a237e",
+            color: "#fff",
             backdropFilter: "blur(10px)",
             overflowX: "hidden",
             borderRight: "1px solid rgba(0,0,0,0.1)",
@@ -91,7 +95,7 @@ const Signup = () => {
           },
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 3, mb: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 3, mb: 2, color: "#fff" }}>
           <HomeIcon fontSize="large" />
           {sidebarOpen && (
             <Typography variant="h6" mt={1} fontWeight="bold">
@@ -109,11 +113,11 @@ const Signup = () => {
                   borderRadius: 2,
                   mx: 1,
                   transition: "0.3s",
-                  color: "#000",
+                  color: "#fff",
                   "&:hover": {
-                    bgcolor: "rgba(0,0,0,0.05)",
+                    bgcolor: "rgba(255,255,255,0.1)",
                     transform: "scale(1.05)",
-                    color: "#1976d2",
+                    color: "#90caf9",
                   },
                 }}
               >
@@ -134,52 +138,69 @@ const Signup = () => {
           alignItems: "center",
           justifyContent: "center",
           height: "100vh",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
         }}
       >
-        <div className="signup-card shadow p-4" style={{ width: 400 }}>
-          <h2 className="text-center mb-4">Create Account</h2>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="signup-card shadow-lg p-5"
+          style={{ width: "100%", maxWidth: "420px", borderRadius: "20px", background: "rgba(255, 255, 255, 0.95)" }}
+        >
+          <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333" }}>Create Account</h2>
           <form onSubmit={handleSubmit}>
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
+              <PersonIcon sx={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#667eea" }} />
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 placeholder="Full Name"
-                className="form-control form-control-lg"
+                className="w-full px-5 py-3 pl-12 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition text-lg"
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
+              <EmailIcon sx={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#667eea" }} />
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 placeholder="Email"
-                className="form-control form-control-lg"
+                className="w-full px-5 py-3 pl-12 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition text-lg"
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
+              <LockIcon sx={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#667eea" }} />
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 placeholder="Password"
-                className="form-control form-control-lg"
+                className="w-full px-5 py-3 pl-12 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition text-lg"
                 onChange={handleChange}
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100 btn-lg" disabled={loading}>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="btn w-100 btn-lg text-white"
+              style={{ background: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)", border: "none", borderRadius: "10px", fontWeight: "bold" }}
+              disabled={loading}
+            >
               {loading ? "Signing up..." : "Signup"}
-            </button>
+            </motion.button>
           </form>
           <p className="text-center mt-3">
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link to="/login" style={{ color: "#6a11cb", fontWeight: "bold", textDecoration: "none" }}>Login</Link>
           </p>
-        </div>
+        </motion.div>
         <ToastContainer position="bottom-left" />
       </Box>
     </Box>

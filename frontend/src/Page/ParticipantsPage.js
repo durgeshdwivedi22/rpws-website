@@ -161,7 +161,7 @@ const ParticipantsPage = () => {
     return `${API_URL}/allParticipants?page=${pageIndex + 1}&limit=6`;
   };
 
-  const { data, error, mutate, size, setSize, isLoading } = useSWRInfinite(
+  const { data,  mutate, size, setSize, isLoading } = useSWRInfinite(
     getKey,
     fetcher,
     {
@@ -255,12 +255,13 @@ const ParticipantsPage = () => {
   const guestVotes = useMemo(() => getGuestVotes(), [allParticipants]);
 
   return (
-    <Container sx={{ py: 6 }}>
-      <Typography variant="h4" align="center" fontWeight="bold" sx={{ mb: 4 }}>
+    <Box sx={{ minHeight: "100vh", background: "linear-gradient(to bottom right, #eef2f3, #8e9eab)", py: 6 }}>
+    <Container>
+      <Typography variant="h3" align="center" fontWeight="bold" sx={{ mb: 4, color: "#2c3e50", textShadow: "2px 2px 4px rgba(0,0,0,0.1)" }}>
         🏅 Participants of the Event
       </Typography>
 
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
         <Button variant="outlined" startIcon={<ShareIcon />} onClick={handleShareClick}>
           Share Participants
         </Button>
@@ -312,7 +313,7 @@ const ParticipantsPage = () => {
             variant="contained"
             onClick={() => setSize(size + 1)}
             disabled={isLoadingMore}
-            sx={{ fontWeight: "bold", px: 4, py: 1.5 }}
+            sx={{ fontWeight: "bold", px: 5, py: 1.5, borderRadius: 5, background: "#333" }}
           >
             {isLoadingMore ? "Loading..." : "Load More"}
           </Button>
@@ -327,6 +328,7 @@ const ParticipantsPage = () => {
         <Alert severity={snackbar.severity}>{snackbar.message}</Alert>
       </Snackbar>
     </Container>
+    </Box>
   );
 };
 

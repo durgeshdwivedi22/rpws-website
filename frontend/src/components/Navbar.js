@@ -9,8 +9,6 @@ import {
   UserButton,
   useUser,
 } from "@clerk/clerk-react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Navbar = () => {
   const { token, logout } = useContext(AuthContext);
@@ -35,155 +33,97 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
-      <div className="container">
+    <nav className="bg-slate-900/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 transition-all duration-300">
+      <div className="container mx-auto px-6 h-20 flex justify-between items-center">
         {/* ✅ Brand Section */}
         <Link
-          className="navbar-brand d-flex align-items-center gap-2 fw-bold fs-3"
+          className="flex items-center gap-3 group"
           to="/"
-          style={{ textDecoration: "none", color: "inherit" }}
         >
-          <img
-            src="axislogo-removebg-preview.png"
-            alt="AITM Logo"
-            style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              background: "linear-gradient(135deg, #ffffff, #dfe9f3)",
-              boxShadow:
-                "0 4px 10px rgba(0, 0, 0, 0.25), 0 0 15px rgba(37, 117, 252, 0.3)",
-              transition:
-                "transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease",
-              border: "3px solid rgba(255, 255, 255, 0.7)",
-              padding: "3px",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.1)";
-              e.target.style.boxShadow = "0 4px 15px rgba(0,0,0,0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "0 2px 8px rgba(0,0,0,0.25)";
-            }}
-          />
-          <span className="fw-bold fs-4 text-white">RPWS</span>
+          <div className="relative flex items-center justify-center">
+            <div className="absolute inset-0 bg-indigo-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300 rounded-full"></div>
+            <img
+              src="/axislogo-removebg-preview.png"
+              alt="AITM Logo"
+              className="relative w-10 h-10 object-contain drop-shadow-lg transform transition-transform duration-300 group-hover:scale-110 bg-white rounded-full p-1"
+            />
+          </div>
+          <span className="text-2xl font-black tracking-tight text-white group-hover:text-indigo-400 transition-colors duration-300">
+            RPWS<span className="text-indigo-500">.</span>
+          </span>
         </Link>
 
-        {/* Toggle Button */}
-        <button
-          className="navbar-toggler border-0"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
         {/* Navbar Links */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-center">
+        <div className="hidden md:flex items-center gap-8">
             {/* Common Pages */}
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 group" to="/">
                 Home
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-            </li>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 group" to="/about">
                 About
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-            </li>
 
             {/* Shown only after Clerk login */}
             <SignedIn>
-              <li className="nav-item">
-                <Link className="nav-link" to="/participants">
+                <Link className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 group" to="/participants">
                   Participants
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-              </li>
 
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <Link className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 group" to="/contact">
                   Contact
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-              </li>
             </SignedIn>
 
             {/* ✅ Clerk Login/Signup Buttons (redirect to Home after login/signup) */}
             <SignedOut>
-              <li className="nav-item ms-2">
                 <SignInButton mode="modal" redirectUrl="/">
-                  <button className="btn btn-outline-light">Login</button>
+                  <button className="px-5 py-2 text-sm font-semibold text-white transition-all duration-300 border border-gray-600 rounded-full hover:border-gray-400 hover:bg-white/5">Login</button>
                 </SignInButton>
-              </li>
-              <li className="nav-item ms-2">
                 <SignUpButton mode="modal" redirectUrl="/">
-                  <button className="btn btn-light text-primary">Sign Up</button>
+                  <button className="px-5 py-2 text-sm font-bold text-white transition-all duration-300 bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/30 hover:bg-indigo-500 hover:shadow-indigo-500/50 hover:-translate-y-0.5">Sign Up</button>
                 </SignUpButton>
-              </li>
             </SignedOut>
 
             {/* ✅ Clerk Logged-In User */}
             <SignedIn>
-              <li className="nav-item ms-3">
                 <UserButton
                   appearance={{
                     elements: {
-                      avatarBox: {
-                        width: "40px",
-                        height: "40px",
-                      },
+                      avatarBox: "w-10 h-10 border-2 border-indigo-500/50 hover:border-indigo-400 transition-colors",
                     },
                   }}
                   afterSignOutUrl="/"
                 />
-              </li>
             </SignedIn>
 
             {/* ✅ Admin Login (only visible if Clerk user NOT signed in) */}
             {!isSignedIn && !token && (
-              <li className="nav-item ms-3">
-                <Link className="btn btn-outline-light" to="/login">
-                  Admin Login
+                <Link className="text-xs font-medium text-gray-600 hover:text-gray-400 transition-colors" to="/login">
+                  Admin
                 </Link>
-              </li>
             )}
 
             {/* ✅ Admin Dropdown (if admin is logged in) */}
             {token && !isSignedIn && (
-              <li className="nav-item dropdown ms-3" ref={dropdownRef}>
+              <div className="relative" ref={dropdownRef}>
                 <button
-                  className="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    fontWeight: "bold",
-                    transition: "0.3s",
-                  }}
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold flex items-center justify-center shadow-lg hover:shadow-indigo-500/50 transition-all duration-300"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
                   A
                 </button>
 
                 {dropdownOpen && (
-                  <ul
-                    className="dropdown-menu dropdown-menu-end show mt-2 shadow"
-                    style={{
-                      borderRadius: "8px",
-                      position: "absolute",
-                      right: 0,
-                    }}
+                  <div
+                    className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 z-50"
                   >
-                    <li>
                       <button
-                        className="dropdown-item"
+                        className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
                         onClick={() => {
                           navigate("/admin");
                           setDropdownOpen(false);
@@ -191,20 +131,16 @@ const Navbar = () => {
                       >
                         Admin Panel
                       </button>
-                    </li>
-                    <li>
                       <button
-                        className="dropdown-item text-danger"
+                        className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 transition"
                         onClick={handleLogout}
                       >
                         Logout
                       </button>
-                    </li>
-                  </ul>
+                  </div>
                 )}
-              </li>
+              </div>
             )}
-          </ul>
         </div>
       </div>
     </nav>

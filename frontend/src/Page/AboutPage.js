@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const About = () => {
@@ -48,26 +47,26 @@ const About = () => {
   ];
 
   return (
-    <section className="about-section py-5 bg-light">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-200 min-h-screen">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="container text-center mb-5"
+        className="container mx-auto px-6 text-center mb-16"
       >
-        <h2 className="display-4 text-primary fw-bold mb-4">About Axis College</h2>
-        <p className="lead text-secondary mx-auto w-75">
-          Welcome to <span className="fw-semibold text-gradient">Gandhigiri Event</span> — a celebration of innovation, creativity, and collaboration.
-          Hosted under the <span className="fw-semibold text-gradient">Sanganak Shila Society</span> and powered by the <span className="fw-semibold text-gradient">Axis Community</span>,
-          this event unites tech enthusiasts to showcase talent through <span className="text-gradient fw-medium">coding contests</span> and <span className="text-gradient fw-medium">hackathons</span>.
+        <h2 className="text-5xl font-bold mb-6 text-gray-800">About Axis College</h2>
+        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Welcome to <span className="font-semibold text-indigo-600">Gandhigiri Event</span> — a celebration of innovation, creativity, and collaboration.
+          Hosted under the <span className="font-semibold text-indigo-600">Sanganak Shila Society</span> and powered by the <span className="font-semibold text-indigo-600">Axis Community</span>,
+          this event unites tech enthusiasts to showcase talent through <span className="text-indigo-600 font-medium">coding contests</span> and <span className="text-indigo-600 font-medium">hackathons</span>.
         </p>
       </motion.div>
 
       {/* Cards */}
-      <div className="container">
-        <div className="row g-4">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card, i) => (
             <motion.div
               key={i}
@@ -76,21 +75,21 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="col-md-6 col-lg-4"
             >
-              <div className="card interactive-card h-100 border-0 shadow-lg rounded-4 overflow-hidden position-relative">
+              <div className="group h-full relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white">
                 <div
-                  className="card-img-overlay"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                   style={{
                     backgroundImage: `url(${card.img})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    filter: "brightness(0.7)",
                   }}
-                ></div>
-                <div className="card-body position-relative text-white">
-                  <h3 className="card-title mb-3">{card.title}</h3>
-                  <p className="card-text">{card.text}</p>
+                />
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                
+                <div className="relative p-8 h-full flex flex-col justify-end text-white">
+                  <h3 className="text-2xl font-bold mb-3 border-b-2 border-indigo-500 inline-block pb-1 w-fit">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-200 leading-relaxed">{card.text}</p>
                 </div>
               </div>
             </motion.div>
@@ -104,22 +103,22 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
-        className="container text-center mt-5"
+        className="container mx-auto px-6 text-center mt-20"
       >
-        <h3 className="display-6 text-primary fw-bold mb-3">Gandhigiri Event</h3>
-        <p className="lead text-secondary mx-auto w-75">
+        <h3 className="text-3xl font-bold mb-4 text-gray-800">Gandhigiri Event</h3>
+        <p className="text-xl text-gray-600 max-w-4xl mx-auto">
           The Gandhigiri Event symbolizes creativity, teamwork, and innovation. It unites students to participate in coding contests, hackathons,
           and tech challenges — celebrating the true spirit of technology and community.
         </p>
       </motion.div>
 
       {/* Embedded Google Map */}
-      <div className="d-flex justify-content-center mt-5">
+      <div className="flex justify-center mt-12 px-6 pb-12">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.432721220281!2d80.45014237487553!3d26.344862584263982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4278f92f3a69%3A0xb7805a7e15877959!2sAxis%20Colleges!5e0!3m2!1sen!2sin!4v1760377562006!5m2!1sen!2sin"
           width="100%"
           height="450"
-          style={{ border: 0, borderRadius: "12px", maxWidth: "900px" }}
+          className="rounded-2xl shadow-xl max-w-5xl w-full border-0"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

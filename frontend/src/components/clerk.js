@@ -1,5 +1,5 @@
 // ClerkAuth.js
-import React from "react";
+
 import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser } from "@clerk/clerk-react";
 
 const Clerk = () => {

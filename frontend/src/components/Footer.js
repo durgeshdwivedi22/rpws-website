@@ -4,54 +4,54 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-5 pb-3 mt-5">
-  <div className="container">
-    <div className="row">
+    <footer className="bg-slate-900 text-white pt-16 pb-8 mt-20">
+  <div className="container mx-auto px-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
 
       {/* About Section */}
-      <div className="col-md-4 mb-4">
-        <h5 className="fw-bold">RPWS</h5>
-        <p>RPWS is a platform for rating and reviewing college events, participants, and winners. Engage, vote, and stay updated with all our activities.</p>
+      <div>
+        <h5 className="text-xl font-bold mb-4 text-indigo-400">RPWS</h5>
+        <p className="text-gray-400 leading-relaxed">RPWS is a platform for rating and reviewing college events, participants, and winners. Engage, vote, and stay updated with all our activities.</p>
       </div>
 
       {/* Quick Links */}
-      <div className="col-md-2 mb-4">
-        <h5 className="fw-bold">Quick Links</h5>
-        <ul className="list-unstyled">
-          <li><Link className="text-white text-decoration-none" to="/">Home</Link></li>
-          <li><Link className="text-white text-decoration-none" to="/participants">Participate</Link></li>
-          <li><Link className="text-white text-decoration-none" to="/winner">Winner</Link></li>
-          <li><Link className="text-white text-decoration-none" to="/register">Register</Link></li>
-          <li><Link className="text-white text-decoration-none" to="/contact">Contact</Link></li>
+      <div>
+        <h5 className="text-xl font-bold mb-4 text-indigo-400">Quick Links</h5>
+        <ul className="space-y-2">
+          <li><Link className="text-gray-400 hover:text-white transition" to="/">Home</Link></li>
+          <li><Link className="text-gray-400 hover:text-white transition" to="/participants">Participate</Link></li>
+          <li><Link className="text-gray-400 hover:text-white transition" to="/winner">Winner</Link></li>
+          <li><Link className="text-gray-400 hover:text-white transition" to="/register">Register</Link></li>
+          <li><Link className="text-gray-400 hover:text-white transition" to="/contact">Contact</Link></li>
         </ul>
       </div>
 
       {/* Contact Info */}
-      <div className="col-md-3 mb-4">
-        <h5 className="fw-bold">Contact</h5>
-        <p>Email: <a href="mailto:info@rpws.com" className="text-white text-decoration-none">info@rpws.com</a></p>
-        <p>Phone: <a href="tel:+911234567890" className="text-white text-decoration-none">+91 12345 67890</a></p>
-        <p>Address: Axis College, India</p>
+      <div>
+        <h5 className="text-xl font-bold mb-4 text-indigo-400">Contact</h5>
+        <p className="text-gray-400 mb-2">Email: <a href="mailto:info@rpws.com" className="hover:text-white transition">info@rpws.com</a></p>
+        <p className="text-gray-400 mb-2">Phone: <a href="tel:+911234567890" className="hover:text-white transition">+91 12345 67890</a></p>
+        <p className="text-gray-400">Address: Axis College, India</p>
       </div>
 
       {/* Social Links */}
-      <div className="col-md-3 mb-4">
-        <h5 className="fw-bold">Follow Us</h5>
-        <div className="d-flex gap-3">
-          <a href="#" className="text-white fs-4"><i className="bi bi-twitter"></i></a>
-          <a href="#" className="text-white fs-4"><i className="bi bi-instagram"></i></a>
-          <a href="#" className="text-white fs-4"><i className="bi bi-facebook"></i></a>
-          <a href="#" className="text-white fs-4"><i className="bi bi-linkedin"></i></a>
+      <div>
+        <h5 className="text-xl font-bold mb-4 text-indigo-400">Follow Us</h5>
+        <div className="flex gap-4">
+          <a href="#" className="text-gray-400 hover:text-white text-2xl transition"><i className="bi bi-twitter"></i></a>
+          <a href="#" className="text-gray-400 hover:text-white text-2xl transition"><i className="bi bi-instagram"></i></a>
+          <a href="#" className="text-gray-400 hover:text-white text-2xl transition"><i className="bi bi-facebook"></i></a>
+          <a href="#" className="text-gray-400 hover:text-white text-2xl transition"><i className="bi bi-linkedin"></i></a>
         </div>
       </div>
     </div>
 
     {/* Divider */}
-    <hr className="border-light" />
+    <hr className="border-gray-800 mb-8" />
 
     {/* Footer Bottom */}
-    <div className="text-center">
-      <p className="mb-0">&copy; {new Date().getFullYear()} RPWS. All rights reserved.</p>
+    <div className="text-center text-gray-500">
+      <p>&copy; {new Date().getFullYear()} RPWS. All rights reserved.</p>
     </div>
   </div>
 </footer>
